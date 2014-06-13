@@ -73,13 +73,23 @@ public class SpaceVector
 	}
 
 	/**
+	 * Negates the SpaceVector
+	 * @return Negative SpaceVector
+	 */
+	public SpaceVector negative()
+	{
+		return this.scalarProduct(-1.0);
+	}
+
+	/**
 	 * Multiplies the SpaceVector by a scalar
 	 * @param scalar
 	 * @return SpaceVector corresponding to the scalar product
 	 */
 	public SpaceVector scalarProduct(double scalar)
 	{
-		double[] newComponents = new double[this.dimension];
+		int dimension = this.dimension;
+		double[] newComponents = new double[dimension];
 
 		// Multiply each component by the scalar
 		for (int i = 0; i < this.dimension; i++)
@@ -89,6 +99,26 @@ public class SpaceVector
 
 		SpaceVector newVector = new SpaceVector(newComponents);
 		return newVector;
+	}
+
+	/**
+	 * Adds a SpaceVector to this SpaceVector
+	 * @param otherVector
+	 * @return SpaceVector corresponding to the sum
+	 */
+	public SpaceVector add(SpaceVector otherVector)
+	{
+		int dimension = this.dimension;
+		double[] newComponents = new double[dimension];
+
+		for (int i = 0; i < dimension; i++)
+		{
+			double currentSum = this.getComponents()[i] + otherVector.getComponents()[i];
+			newComponents[i] = currentSum;
+		}
+
+		SpaceVector sum = new SpaceVector(newComponents);
+		return sum;
 	}
 
 	/**

@@ -116,7 +116,7 @@ public class Cluster
 		double G = 10000.0;
 
 		// Scalar portion: G * m_1 * m_2 / r^2
-		SpaceVector r = SpaceVector.add(otherPosition, position.scalarProduct(-1.0));
+		SpaceVector r = SpaceVector.add(otherPosition, position.negative());
 		double magnitudeSquared = Math.pow(r.getNorm(), 2.0);
 		double scalarPortion = G * mass * otherMass / magnitudeSquared;
 
@@ -157,7 +157,7 @@ public class Cluster
 		for (int i = 0; i < numBodies; i++)
 		{
 			SpaceVector currentVelocity = this.bodies[i].getVelocity();
-			SpaceVector adjustedVelocity = SpaceVector.add(currentVelocity, velocity_com.scalarProduct(-1.0));
+			SpaceVector adjustedVelocity = SpaceVector.add(currentVelocity, velocity_com.negative());
 			this.bodies[i].setVelocity(adjustedVelocity);
 		}
 	}
