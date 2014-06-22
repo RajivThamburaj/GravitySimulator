@@ -24,22 +24,25 @@ public final class Canvas extends JPanel implements ActionListener
 	private String configurationsFile;
 	private int frameNumber = 0;
 	private boolean showPaths;
-	private double timeStep;
+	private double timeStep = 0.0005;
+	// Constants
+	private final int MAX_TRACE_POINTS = 200;
+	private final int VIEW_UPDATE_RATE = 10;
 
 	/**
 	 * Constructor
 	 */
 	public Canvas()
 	{
+		double DEFAULT_TIME_STEP = 0.0005;
+
 		this.setOpaque(true);
 		setBackground(new Color(0, 0, 40));
 
 		this.timer = new Timer(1, this);
-
 		this.points = new ArrayList<Point2D.Double[]>();
-
 		this.showPaths = true;
-		this.timeStep = 0.0005;
+		this.timeStep = DEFAULT_TIME_STEP;
 	}
 
 	/**
@@ -49,8 +52,6 @@ public final class Canvas extends JPanel implements ActionListener
 	@Override
 	public void paintComponent(Graphics g)
 	{
-		final int MAX_POINTS = 200;
-
 		super.paintComponent(g);
 		Graphics2D g2d = (Graphics2D) g;
 
@@ -79,7 +80,7 @@ public final class Canvas extends JPanel implements ActionListener
 			g2d.fill(new Ellipse2D.Double(x - diameter / 2, -y - diameter / 2, diameter, diameter));
 
 			// Remove earlier points from the ArrayList
-			if (this.points.size() > MAX_POINTS)
+			if (this.points.size() > this.MAX_TRACE_POINTS)
 			{
 				points.remove(0);
 			}
@@ -240,7 +241,7 @@ public final class Canvas extends JPanel implements ActionListener
 		this.frameNumber++;
 
 		// Update the view (less frequently)
-		if (this.frameNumber % 10 == 0)
+		if (this.frameNumber % this.VIEW_UPDATE_RATE == 0)
 		{
 			repaint();
 		}

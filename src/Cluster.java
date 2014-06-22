@@ -6,6 +6,9 @@ public class Cluster
 {
 	// Instance variables
 	private Body[] bodies;
+	// Constants
+	private final double G = 10000.0;
+
 
 	/**
 	 * Constructor
@@ -113,12 +116,11 @@ public class Cluster
 	{
 		// Since the scale of this simulation is much smaller (in terms of both distances and times), the value of G
 		// must differ significantly from our universe's value of 6.67E-11
-		double G = 10000.0;
 
 		// Scalar portion: G * m_1 * m_2 / r^2
 		SpaceVector r = SpaceVector.add(otherPosition, position.negative());
 		double magnitudeSquared = Math.pow(r.getNorm(), 2.0);
-		double scalarPortion = G * mass * otherMass / magnitudeSquared;
+		double scalarPortion = this.G * mass * otherMass / magnitudeSquared;
 
 		// Vector portion: r_u
 		SpaceVector vectorPortion = r.normalized();

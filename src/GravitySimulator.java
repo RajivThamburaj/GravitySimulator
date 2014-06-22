@@ -23,6 +23,12 @@ public final class GravitySimulator extends JFrame implements ItemListener, Chan
 	private final String configurationsFile = "ClusterConfigurations.xml";
 	private JButton startButton;
 	private JComboBox comboBox;
+	// Constants
+	private final int WINDOW_WIDTH = 900;
+	private final int WINDOW_HEIGHT = 700;
+	private final int MIN_TIME_STEP = 1;
+	private final int MAX_TIME_STEP = 9;
+	private final int DEFAULT_TIME_STEP = 5;
 
 	/**
 	 * Constructor
@@ -140,7 +146,7 @@ public final class GravitySimulator extends JFrame implements ItemListener, Chan
 		button.addActionListener(this);
 
 		// Create the slider (controls the speed of the simulation)
-		slider = new JSlider(JSlider.HORIZONTAL, 1, 9, 5);
+		slider = new JSlider(JSlider.HORIZONTAL, this.MIN_TIME_STEP, this.MAX_TIME_STEP, this.DEFAULT_TIME_STEP);
 		slider.setFocusable(false);
 		constraints.fill = GridBagConstraints.HORIZONTAL;
 		constraints.anchor = GridBagConstraints.PAGE_START;
@@ -184,7 +190,7 @@ public final class GravitySimulator extends JFrame implements ItemListener, Chan
 
 		// Configure the JFrame
 		setTitle("Gravity Simulator");
-		setSize(900, 700);
+		setSize(this.WINDOW_WIDTH, this.WINDOW_HEIGHT);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
