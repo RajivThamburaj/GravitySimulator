@@ -4,13 +4,13 @@ This n-body simulator models groups of celestial bodies under the action of grav
 
 The simulator uses the velocity verlet algorithm to approximate the positions of celestial bodies from the initial conditions and interaction potentials.
 
-### How to Run
+### Build Instructions
 
 Compile and run the `src/GravitySimulator.java` file to launch the simulator.
 
 ### Adding New Configurations
 
-New configurations can easily be added to the simulator by modifying the `src/ClusterConfigurations.xml` file. A configuration is indicated by `<configuration></configuration>` tags containing at least two `<body></body>` tags. Each of these must provide fields for the `diameter`, `mass`, `position`, `velocity`, and `color` of the body.
+New configurations can easily be added to the simulator by modifying the `src/ClusterConfigurations.xml` file. A configuration is indicated by `<configuration>` tags containing at least two `<body>` tags. Each of these must provide fields for the `diameter`, `mass`, `position`, `velocity`, and `color` of the body.
 
 ### Academic Applications
 
