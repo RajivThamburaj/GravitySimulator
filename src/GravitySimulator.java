@@ -24,8 +24,8 @@ public final class GravitySimulator extends JFrame implements ItemListener, Chan
 	private JButton startButton;
 	private JComboBox comboBox;
 	// Constants
-	private final int WINDOW_WIDTH = 900;
-	private final int WINDOW_HEIGHT = 700;
+	private final int WINDOW_WIDTH = 799;
+	private final int WINDOW_HEIGHT = 600;
 	private final int MIN_TIME_STEP = 1;
 	private final int MAX_TIME_STEP = 9;
 	private final int DEFAULT_TIME_STEP = 5;

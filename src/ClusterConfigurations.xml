@@ -285,37 +285,6 @@
     </configuration>
 
     <configuration>
-        <name>Circumbinary Planet</name>
-        <body>
-            <diameter>20.0</diameter>
-            <mass>4000.0</mass>
-            <s_x>-40.0</s_x>
-            <s_y>0.0</s_y>
-            <v_x>0.0</v_x>
-            <v_y>-450.0</v_y>
-            <RGB>0-128-255</RGB>
-        </body>
-        <body>
-            <diameter>20.0</diameter>
-            <mass>4000.0</mass>
-            <s_x>40.0</s_x>
-            <s_y>0.0</s_y>
-            <v_x>0.0</v_x>
-            <v_y>450.0</v_y>
-            <RGB>255-51-51</RGB>
-        </body>
-        <body>
-            <diameter>10.0</diameter>
-            <mass>5.0</mass>
-            <s_x>300.0</s_x>
-            <s_y>0.0</s_y>
-            <v_x>0.0</v_x>
-            <v_y>500.0</v_y>
-            <RGB>0-204-0</RGB>
-        </body>
-    </configuration>
-
-    <configuration>
         <name>Binary Slingshot</name>
         <body>
             <diameter>5.0</diameter>
